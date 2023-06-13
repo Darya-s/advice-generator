@@ -1,38 +1,112 @@
-.App {
+:root {
+  --light-cyan: hsl(193, 38%, 86%);
+  --neon-green: #52ffa8;
+  --grayish-blue: hsl(217, 19%, 38%);
+  --dark-grayish-blue: hsl(217, 19%, 24%);
+  --dark-blue: hsl(218, 23%, 16%);
+
+  --font-manrope: "Manrope", sans-serif;
+
+  --font-size-200: 1.5rem;
+  --font-size-100: 0.8125rem;
+}
+
+body {
+  font-family: var(--font-manrope);
+  background-color: var(--dark-grayish-blue);
+  color: lightcyan;
+  min-height: 100vh;
+  line-height: 1.5;
+  position: relative;
+  display: grid;
+  font-weight: 800;
+  overflow-x: hidden;
+  font-size: var(--font-size-200);
+  align-items: center;
+  justify-content: center;
   text-align: center;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.container {
+  padding: 1rem;
+  background-color: hsl(217, 19%, 38%);
+  border-radius: 1.5em;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+.container h1 {
+  color: var(--neon-green);
+  font-size: 0.9rem;
+  text-transform: uppercase;
+  margin: auto;
+  letter-spacing: 0.4rem;
+  margin-top: 1em;
+  text-align: center;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+.advice {
+  margin-top: 2em;
+  height: 150px;
+}
+.container p {
+  font-size: 28px;
+  color: var(--light-cyan);
+  line-height: 1.5;
+  padding-bottom: 2rem;
+  margin-top: 2em;
 }
 
-.App-link {
-  color: #61dafb;
+.container button {
+  background-color: var(--neon-green);
+  border-color: transparent;
+  border-radius: 2.5rem;
+  padding: 1rem;
+
+  left: 50%;
+
+  bottom: 0.5em;
+  cursor: pointer;
 }
 
-@keyframes App-logo-spin {
+button:active {
+  background-color: #da14ff;
+}
+
+button:hover {
+  box-shadow: var(--neon-green) 0 0 2rem;
+}
+
+#loading {
+  position: absolute;
+  margin: auto;
+  left: 50%;
+}
+
+.rotate {
+  animation: rotation 3s;
+}
+
+.container button:disabled {
+  background-color: #d9eddf;
+}
+
+@keyframes rotation {
   from {
     transform: rotate(0deg);
   }
   to {
-    transform: rotate(360deg);
+    transform: rotate(359deg);
+  }
+}
+
+@media (min-width: 500px) {
+  .container {
+    width: 500px;
+    height: 300px;
+  }
+}
+
+@media (max-width: 499px) {
+  .container {
+    width: 300px;
   }
 }
