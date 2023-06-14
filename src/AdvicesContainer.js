@@ -13,25 +13,31 @@ const AdvicesContainer = () => {
   const getAdvice = async () => {
     try {
       setDisabled(true);
-      const response = await fetch(URL);
+      const response = await fetch(URL, {
+        mode: 'no-cors',
+        method: "GET",
+        headers: {
+          "Cache-Control": "no-cache",
+          Pragma: "no-cache",
+        },
+      });
 
-      if (response) {
-        const result = await response.json();
-
-        console.log("slip is: ", JSON.stringify(result.slip, null, 4));
-        setError(null);
-
-        setAdvices(result.slip);
-        setDisabled(false);
-        return result.slip;
-      } else {
+      if (!response.ok) {
         throw new Error(
           `This is an HTTP error: The status is ${response.status}`
         );
       }
+
+      const result = await response.json();
+
+      console.log("slip is: ", JSON.stringify(result.slip, null, 4));
+      setError(null);
+
+      setAdvices(result.slip);
+      setDisabled(false);
+      return result.slip;
     } catch (err) {
       setError(err.message);
-    } finally {
     }
   };
 
