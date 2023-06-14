@@ -13,14 +13,7 @@ const AdvicesContainer = () => {
   const getAdvice = async () => {
     try {
       setDisabled(true);
-      const response = await fetch(URL, {
-        mode: 'no-cors',
-        method: "GET",
-        headers: {
-          "Cache-Control": "no-cache",
-          Pragma: "no-cache",
-        },
-      });
+      const response = await fetch(URL, {cache: "no-store"});
 
       if (!response.ok) {
         throw new Error(
