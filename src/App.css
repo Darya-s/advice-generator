@@ -76,6 +76,9 @@ button:active {
 
 button:hover {
   box-shadow: var(--neon-green) 0 0 2rem;
+  border-color: transparent;
+  border-radius: 2.5rem;
+
 }
 
 #loading {
